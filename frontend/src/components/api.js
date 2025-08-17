@@ -1,4 +1,4 @@
-const BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000'
+const BASE = import.meta.env.VITE_API_BASE || 'https://livesitter-3rsj.onrender.com'
 
 export async function listOverlays(){
   const res = await fetch(`${BASE}/api/overlays`)
