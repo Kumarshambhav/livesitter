@@ -7,3 +7,4 @@ flasgger==0.9.7b2   # for Swagger API docs
 gunicorn==21.2.0    # if you deploy
 opencv-python==4.8.1.78
 flask-swagger-ui==4.11.1
+python-dotenv
