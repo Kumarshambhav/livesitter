@@ -5,8 +5,11 @@ from bson.objectid import ObjectId
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from pymongo import MongoClient
+from dotenv import load_dotenv
 
-MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://rshambhavkumar:HWI0cFlhtXBqnz9J@livesitter.ffkb2ey.mongodb.net/?retryWrites=true&w=majority&appName=livesitter")
+load_dotenv()
+
+MONGO_URI = os.getenv("MONGO_URI")
 
 app = Flask(__name__, static_folder=None)
 CORS(app)
