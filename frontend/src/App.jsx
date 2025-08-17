@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import Landing from './components/Landing'
+import Player from './components/Player'
+import OverlayEditor from './components/OverlayEditor'
 
-
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [streamUrl, setStreamUrl] = useState('')
+  const [showApp, setShowApp] = useState(false)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="min-h-screen text-white">
+      {!showApp ? (
+        <Landing onStart={(url)=>{ setStreamUrl(url); setShowApp(true) }} />
+      ) : (
+        <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} className="p-6 max-w-7xl mx-auto grid md:grid-cols-5 gap-6">
+          <div className="md:col-span-3 glass p-4">
+            <Player url={streamUrl} />
+          </div>
+          <div className="md:col-span-2 glass p-4">
+            <OverlayEditor videoSelector="#video-player" />
+          </div>
+        </motion.div>
+      )}
+    </div>
   )
 }
-
-export default App
