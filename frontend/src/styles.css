@@ -1,1 +1,155 @@
 
+/* ===== Base ===== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+:root { color-scheme: dark; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(37,99,235,.25), transparent),
+              radial-gradient(1000px 600px at 120% 10%, rgba(16,185,129,.18), transparent),
+              #0b0f17;
+  color: #e5e7eb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Links reset */
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+/* ===== Utility Classes (Tailwind-like) ===== */
+
+/* Layout */
+.min-h-screen { min-height: 100vh; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gap-2 { gap: .5rem; }
+.gap-1 { gap: .25rem; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.left-0 { left: 0; }
+.-top-8 { top: -2rem; }
+
+/* Sizing */
+.max-w-3xl { max-width: 48rem; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.aspect-video { aspect-ratio: 16 / 9; }
+
+/* Spacing */
+.p-8 { padding: 2rem; }
+.p-6 { padding: 1.5rem; }
+.px-3 { padding-left: .75rem; padding-right: .75rem; }
+
+/* Vertical space stacks */
+.space-y-8 > * + * { margin-top: 2rem; }
+.space-y-4 > * + * { margin-top: 1rem; }
+
+/* Borders & Radius */
+.border { border-width: 1px; border-style: solid; border-color: rgba(255,255,255,.15); }
+.border-white\/10 { border-color: rgba(255,255,255,.10); }
+.border-white\/20 { border-color: rgba(255,255,255,.20); }
+.rounded-xl { border-radius: .75rem; }
+.rounded-lg { border-radius: .5rem; }
+.overflow-hidden { overflow: hidden; }
+
+/* Typography */
+.text-center { text-align: center; }
+.text-xs { font-size: .75rem; line-height: 1rem; }
+.text-sm { font-size: .875rem; line-height: 1.25rem; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.font-semibold { font-weight: 600; }
+.font-black { font-weight: 900; }
+.tracking-tight { letter-spacing: -0.02em; }
+
+/* Colors */
+.text-white\/70 { color: rgba(255,255,255,.70); }
+.text-white\/50 { color: rgba(255,255,255,.50); }
+.bg-black { background: #000; }
+.bg-black\/30 { background: rgba(0,0,0,.30); }
+
+/* Effects */
+.pointer-events-none { pointer-events: none; }
+
+/* Flexbox helpers */
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+
+/* Object fit */
+.object-contain { object-fit: contain; }
+
+/* ===== Components ===== */
+
+/* Frosted "glass" card */
+.glass {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: .75rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Inputs */
+.input {
+  width: 100%;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.20);
+  color: #fff;
+  border-radius: .5rem;
+  padding: .625rem .75rem;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.input::placeholder { color: rgba(255,255,255,.45); }
+.input:focus {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(147,197,253,.25);
+  background: rgba(255,255,255,.08);
+}
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  font-weight: 600;
+  background: #2563eb;         /* indigo-600 */
+  color: #fff;
+  border: 0;
+  border-radius: .5rem;
+  padding: .625rem .9rem;
+  cursor: pointer;
+  transition: transform .05s ease, filter .15s ease, opacity .15s ease;
+}
+.button:hover { filter: brightness(1.06); }
+.button:active { transform: translateY(1px); }
+.button:disabled { opacity: .6; cursor: not-allowed; }
+
+/* ===== Player ===== */
+#video-player {
+  width: 100%;
+  background: #000;
+  border-radius: .75rem;
+}
+
+/* ===== Vite + React template helpers (App.jsx) ===== */
+.logo { height: 6em; padding: 1.5em; will-change: filter; transition: filter 300ms; }
+.logo:hover { filter: drop-shadow(0 0 2em rgba(100, 108, 255, 0.67)); }
+.logo.react:hover { filter: drop-shadow(0 0 2em rgba(97, 218, 251, 0.67)); }
+
+.card { padding: 2em; background: rgba(255,255,255,.03); border-radius: .75rem; border: 1px solid rgba(255,255,255,.08); }
+.read-the-docs { color: rgba(255,255,255,.55); }
+
+/* ===== Responsive ===== */
+@media (min-width: 768px) {
+  .md\:text-6xl { font-size: 3.75rem; line-height: 1; }
+}
