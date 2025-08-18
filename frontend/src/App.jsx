@@ -10,6 +10,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen text-white">
+      <h1>hello</h1>
       {!showApp ? (
         <Landing onStart={(url)=>{ setStreamUrl(url); setShowApp(true) }} />
       ) : (
