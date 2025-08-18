@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import Landing from './components/Landing'
 import Player from './components/Player'
 import OverlayEditor from './components/OverlayEditor'
+import './styles.css'
 
 export default function App() {
   const [streamUrl, setStreamUrl] = useState('')
