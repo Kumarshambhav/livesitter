@@ -12,7 +12,7 @@ load_dotenv()
 MONGO_URI = os.getenv("MONGO_URI")
 
 app = Flask(__name__, static_folder=None)
-CORS(app)
+CORS(app , resources={r"/*": {"origins": "https://livesitter.vercel.app"}})
 
 # Mongo setup
 client = MongoClient(MONGO_URI)
